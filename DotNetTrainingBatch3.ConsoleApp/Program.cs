@@ -1,25 +1,4 @@
 ﻿
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // See https://aka.ms/new-console-template for more information
 using System.Data;
 using System.Data.SqlClient;
@@ -45,9 +24,9 @@ sqlConnection.Close();
 foreach (DataRow dr in dt.Rows)
 {
     Console.WriteLine(dr["blogid"]);
-    Console.WriteLine(dr[1]);
-    Console.WriteLine(dr[2]);
-    Console.WriteLine(dr["blogcontent"]);
+    Console.WriteLine(dr["blogTitle"]);
+    Console.WriteLine(dr["blogAuthor"]);
+    Console.WriteLine(dr["blogContent"]);
     Console.WriteLine();
 }
 #endregion
