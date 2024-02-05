@@ -1,32 +1,13 @@
 ﻿
-// See https://aka.ms/new-console-template for more information
-using System.Data;
-using System.Data.SqlClient;
-using System.Net.Http.Headers;
 
-#region for read
-SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
-stringBuilder.DataSource = "DESKTOP-JRQ534H\\MSSQLSERVER2019";
-stringBuilder.InitialCatalog = "TestDb";
-stringBuilder.UserID = "sa";
-stringBuilder.Password="sasa"; 
 
-SqlConnection sqlConnection = new SqlConnection(stringBuilder.ConnectionString);
 
-sqlConnection.Open();
-string Queryable = "select * from tbl_Blog";
-SqlCommand sqlCommand = new SqlCommand(Queryable, sqlConnection);
-SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
-DataTable dt = new DataTable();
-adapter.Fill(dt);
-sqlConnection.Close();
+using DotNetTrainingBatch3.ConsoleApp.AdoDotNetExamples;
 
-foreach (DataRow dr in dt.Rows)
-{
-    Console.WriteLine(dr["blogid"]);
-    Console.WriteLine(dr["blogTitle"]);
-    Console.WriteLine(dr["blogAuthor"]);
-    Console.WriteLine(dr["blogContent"]);
-    Console.WriteLine();
-}
-#endregion
+AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+
+adoDotNetExample.Read();
+adoDotNetExample.Edit(1);
+adoDotNetExample.Create("title test","author test","content test");
+adoDotNetExample.Delete(2);
+adoDotNetExample.Update(3, "title testing", "author testing", "content testing");
