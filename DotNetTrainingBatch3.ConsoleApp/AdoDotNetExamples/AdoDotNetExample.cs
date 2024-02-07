@@ -81,7 +81,6 @@ namespace DotNetTrainingBatch3.ConsoleApp.AdoDotNetExamples
             stringBuilder.InitialCatalog = "TestDb";
             stringBuilder.UserID = "sa";
             stringBuilder.Password = "sasa";
-
             SqlConnection sqlConnection = new SqlConnection(stringBuilder.ConnectionString);
             sqlConnection.Open();
             string query = @"INSERT INTO[dbo].[Tbl_Blog]
