@@ -19,7 +19,7 @@ namespace DotNetTrainingBatch3.ConsoleApp.DapperExamples
             UserID = "sa",
             Password = "sasa"
         };
-
+        
         public void Read()
         {
             string query = @"SELECT [BlogId]
@@ -29,7 +29,7 @@ namespace DotNetTrainingBatch3.ConsoleApp.DapperExamples
               FROM [dbo].[Tbl_Blog]";
             using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             List<BlogModel> lst = db.Query<BlogModel>(query).ToList();
-
+           
             foreach (BlogModel item in lst)
             {
                 Console.WriteLine(item.BlogId);
